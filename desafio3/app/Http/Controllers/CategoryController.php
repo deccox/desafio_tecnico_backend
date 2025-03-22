@@ -14,14 +14,15 @@ class CategoryController extends Controller
     }
     public function index()
     {
-     return view('categorias-cadastrar', ['categories' => $categories] );
+        $categories = \App\Models\Category::all();
+        return view('categorias', ['categories' => $categories] );
     }
 
-    public function listar()
-    {
-     $categories = \App\Models\Category::all();
-     return view('categorias', ['categories' => $categories] );
-    }
+    // public function listar()
+    // {
+    //  $categories = \App\Models\Category::all();
+    //  return view('categorias', ['categories' => $categories] );
+    // }
 
     public function create()
     {

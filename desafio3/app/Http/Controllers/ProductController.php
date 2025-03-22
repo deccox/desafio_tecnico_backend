@@ -20,11 +20,11 @@ class ProductController extends Controller
      return view('produtos', ['produtos' => $produtos] );
     } 
 
-   public function listar()
-   {
-    $produtos = \App\Models\Product::all();
-    return view('produtos', ['produtos' => $produtos] );
-   }
+//    public function listar()
+//    {
+//     $produtos = \App\Models\Product::all();
+//     return view('produtos', ['produtos' => $produtos] );
+//    }
 
    public function create()
    {
