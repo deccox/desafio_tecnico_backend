@@ -14,7 +14,7 @@ class ProdutosTest extends TestCase
 
     use DatabaseTransactions;
     
-
+    // problem 01
     public function test_it_should_be_return_200_status(){
             $response = $this->get('/produtos/listar');
 
@@ -22,7 +22,7 @@ class ProdutosTest extends TestCase
             $response->assertStatus(200);            
     }
 
-
+    // problem 01
     public function test_product_listing_returns_expected_data()
     {
         
@@ -44,9 +44,8 @@ class ProdutosTest extends TestCase
         $response->assertSee('100'); 
     }
 
-
-
-
+    
+    // problem 03
     public function test_product_listing_displays_category_name()
     {
         $category = new Category();
@@ -65,9 +64,15 @@ class ProdutosTest extends TestCase
 
         $response = $this->get('/produtos/listar');
 
-        
+
         $response->assertStatus(200);
         $response->assertSee('Categoria Teste');
     }
+
+    
+
+
+
+    
 
 }
