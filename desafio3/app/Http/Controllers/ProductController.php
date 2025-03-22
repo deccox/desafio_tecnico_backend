@@ -41,7 +41,7 @@ class ProductController extends Controller
            'description'=>$request->description
        ]);
        if($product){
-           return redirect('produtos/listar');
+           return redirect('produtos/listar')->with('msg', 'Produto Cadastrado com sucesso');
        }
    }
 
@@ -67,6 +67,6 @@ class ProductController extends Controller
    public function destroy($id)
    {
        $product = $this->objProduct->find($id)->delete();
-       return redirect('produtos/listar')->with('msg', 'Categoria excluída com sucesso.');
+       return redirect('produtos/listar')->with('msg', 'Produto excluída com sucesso.');
    }
 }

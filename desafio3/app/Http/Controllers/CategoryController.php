@@ -37,7 +37,7 @@ class CategoryController extends Controller
             'description'=>$request->description
         ]);
         if($category){
-            return redirect('categorias/listar');
+            return redirect('categorias/listar')->with('msg', 'Categoria cadastrada com sucesso');
         }
     }
  

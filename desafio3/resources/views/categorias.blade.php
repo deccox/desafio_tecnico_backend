@@ -3,6 +3,12 @@
 @section('conteudo')
 
 <div class="flex-center position-ref full-height">
+
+    @if(session('msg'))
+    <div class="alert alert-success text-center mx-auto" style="max-width: 400px;">
+        {{session('msg')}}
+    </div>
+    @endif
     <div class="categories-container">
         <div class="spaced-contend">
             <h1>Categorias</h1>
