@@ -16,7 +16,10 @@ class ProductController extends Controller
 
     public function index()
     {
-     $produtos = \App\Models\Product::all();
+     $produtos = \App\Models\Product::
+                select('products.*', 'categories.name as category_name')
+                ->join('categories', 'categories.id', 'products.category_id')
+                ->get();
      return view('produtos', ['produtos' => $produtos] );
     } 
 

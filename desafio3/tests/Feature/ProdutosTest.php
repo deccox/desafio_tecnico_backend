@@ -2,6 +2,7 @@
 
 namespace Tests\Feature;
 
+use App\Models\Category;
 use App\Models\Product;
 use Tests\TestCase;
 use Illuminate\Foundation\Testing\WithoutMiddleware;
@@ -43,6 +44,30 @@ class ProdutosTest extends TestCase
         $response->assertSee('100'); 
     }
 
-    
+
+
+
+    public function test_product_listing_displays_category_name()
+    {
+        $category = new Category();
+        $category->name = 'Categoria Teste';
+        $category->save();
+
+
+        $produto = new Product();
+        $produto->name = 'Produto01';
+        $produto->slug = 'produto01';
+        $produto->description = 'Descrição do Produto';
+        $produto->price = 100;
+        $produto->category_id = $category->id;
+        $produto->save();
+
+
+        $response = $this->get('/produtos/listar');
+
+        
+        $response->assertStatus(200);
+        $response->assertSee('Categoria Teste');
+    }
 
 }
